@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: su-lig;
     src: url(./Fonts/SuisseIntl-Light.woff2);
@@ -7,6 +8,7 @@
     font-family: su-reg;
     src: url(./Fonts/SuisseIntl-Regular.woff2);
 }
+
 
 * {
     margin: 0;
@@ -25,7 +27,6 @@ body {
 #page1 {
     height: 100vh;
     width: 100%;
-    /* background-color: lightblue; */
     position: relative;
 }
 
@@ -39,6 +40,7 @@ body {
     position: fixed;
     z-index: 1;
     transform: translate(-50%, -50%);
+    pointer-events: none; 
 }
 
 #page1 img {
@@ -51,7 +53,6 @@ body {
 #page1-content {
     height: 100%;
     width: 100%;
-    /* background-color: rgba(255, 0, 0, 0.72);  */
     position: relative;
     z-index: 2;
     color: #fff;
@@ -72,11 +73,19 @@ nav {
 nav h4 {
     font-size: 1.6vw;
     font-weight: 100;
+    transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 nav h3 {
     font-size: 1.8vw;
     font-weight: 100;
+    transition: color 0.3s ease; 
+    cursor: pointer;
+}
+
+nav h4:hover, nav h3:hover {
+    color: #f3b33d;
 }
 
 nav div {
@@ -86,21 +95,24 @@ nav div {
 
 #page1-content h1 {
     font-family: su-reg;
-    font-size: 13vw;
+    font-size: 12vw;
     font-weight: 200;
-    line-height: 24vw;
+    line-height: 1.1; 
+    text-align: center;
 }
+
 
 #page1-content h1 span {
     font-family: su-reg;
-    font-size: 13vw;
+    font-size: 11vw;
     font-weight: 200;
-    line-height: 24vw;
+    line-height: 1.1;
     display: inline-block;
 }
 
+
 #page2 {
-    height: 100vh;
+    min-height: 100vh;
     background-color: #F1EFDD;
 }
 
@@ -127,6 +139,8 @@ hr {
     justify-content: space-evenly;
     align-items: center;
     line-height: 1.5;
+    text-align: center;
+    font-size: .9rem;
 }
 
 .elem h1 {
@@ -149,12 +163,12 @@ hr {
 
 #page3-top h3 {
     font-size: 2vw;
-    font-weight: 120;
+    font-weight: 300; 
 }
 
 #page3-top h1 {
     font-size: 3.4vw;
-    font-weight: 120;
+    font-weight: 300; 
     text-decoration: underline;
     text-decoration-color: #b47b34;
     text-decoration-thickness: 3px;
@@ -162,34 +176,36 @@ hr {
 }
 
 #page3-elements {
-    height: 70vh;
+    min-height: 70vh;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start; 
     justify-content: space-between;
     margin-top: 4vw;
-    /* background-color: rebeccapurple; */
+    flex-wrap: wrap; 
+    gap: 2vw;
 }
 
 #page3-elements .box {
-    height: 100%;
-    width: 24%;
-    /* background-color: blue; */
+    width: 23%; 
     border-radius: 20px;
     overflow: hidden;
     text-align: center;
+    min-width: 200px; 
+    margin-bottom: 2vw;
+    flex-grow: 1;
 }
 
 #page3-elements .box img {
     width: 100%;
-    height: 55vh;
+    height: 60vh; 
     object-fit: cover;
     transition: transform 0.4s ease;
     border-radius: 20px;
 }
 
 #page3-elements .box img:hover {
-    transform: scale(.9);
+    transform: scale(.95);
     cursor: pointer;
 }
 
@@ -209,11 +225,12 @@ hr {
     background-color: #e67e22;
     border: none;
     color: white;
-    padding: 0.6vw 1.5vw;
+    padding: 0.8rem 1.8rem;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 1vw;
+    font-size: 1rem;
     transition: 0.3s;
+    margin-top: 0.5rem;
 }
 
 #page3-elements .box button:hover {
@@ -223,27 +240,26 @@ hr {
 }
 
 #page4 {
-    height: 100vh;
+    min-height: 60vh; 
     width: 100%;
-    padding: 4vw 0;
+    padding: 4vw 0 2vw 0; 
     position: relative;
 }
 
 #page4-top h1 {
-    font-size: 8vw;
+    font-size: 5vw;
     font-family: su-lig;
-    font-weight: 100;
+    font-weight: 500;
     border-bottom: 1px solid black;
-    /* background-color: red; */
-    width: 96%;
-    margin-left: 2%;
-    margin-bottom: 2vw;
+    width: 92%;
+    margin: 0 auto 2vw auto;
+    padding-bottom: 1vw;
+    text-align: center;
 }
 
 #swiperDiv {
-    height: 60vh;
+    min-height: 50vh;
     width: 100%;
-    /* background-color: red; */
     position: relative;
 }
 
@@ -253,21 +269,28 @@ hr {
 }
 
 .swiper-slide {
-    width: 400px;
+    width: 300px;
     text-align: center;
     font-size: 18px;
-    /* background: #444; */
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
     transition: all 0.3s ease;
-
 }
 
 .swiper-slide video {
-    width: 19%;
+    width: 19%; 
+    max-width: 400px;
     object-fit: cover;
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease; 
 }
+
+.swiper-slide video:hover {
+    transform: scale(1.03); 
+}
+
 
 #loader {
     height: 100%;
@@ -275,7 +298,7 @@ hr {
     position: fixed;
     top: 0;
     background-color: black;
-    z-index: 9;
+    z-index: 999; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -285,7 +308,7 @@ hr {
 
 #loader h3 {
     font-size: 2vw;
-    font-weight: 2vw;
+    font-weight: 200; 
 }
 
 #page5 {
@@ -295,7 +318,7 @@ hr {
     justify-content: space-between;
     align-items: flex-start;
     gap: 40px;
-    padding: 80px 8%;
+    padding: 40px 8% 80px 8%; 
     background: #F1EFDD;
     color: #222;
     transition: all 0.3s ease;
@@ -309,14 +332,14 @@ hr {
 }
 
 #page5-left h6 {
-    font-size: 1.4vw;
+    font-size: 1.4rem; 
     letter-spacing: 2px;
     color: #b47b34;
     text-transform: uppercase;
 }
 
 #page5-left h2 {
-    font-size: 34px;
+    font-size: 2.2rem; 
     color: #2e2e2e;
     margin-bottom: 10px;
 }
@@ -331,8 +354,8 @@ hr {
     flex-direction: column;
     gap: 8px;
     border-left: 5px solid transparent;
-    opacity: 0;
-    transform: translateY(60px) scale(0.95);
+    opacity: 0; 
+    transform: translateY(60px) scale(0.95); 
 }
 
 #page5-left>div:hover {
@@ -372,17 +395,17 @@ hr {
 }
 
 #page5-right h2 {
-    font-size: 30px;
+    font-size: 2rem; 
     color: #2e2e2e;
 }
 
 #page5-right>p {
-    font-size: 16px;
+    font-size: 1rem;
     color: #555;
     margin-bottom: 10px;
     line-height: 1.6;
-    opacity: 0;
-    transform: translateY(60px);
+     opacity: 0; 
+     transform: translateY(60px); 
 }
 #page5-right>div {
     background: #fafafa;
@@ -393,8 +416,8 @@ hr {
     gap: 6px;
     transition: all 0.3s ease;
     border-left: 4px solid transparent;
-    opacity: 0;
-    transform: translateY(60px);
+     opacity: 0; 
+     transform: translateY(60px);
 }
 
 #page5-right>div:hover {
@@ -411,7 +434,7 @@ hr {
 }
 
 #page5-right h3 {
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #2e2e2e;
 }
 
@@ -423,19 +446,21 @@ hr {
 
 #page6 {
     width: 100%;
-    height: 40vh;
-    /* background: red; */
+    min-height: 40vh;
     text-align: center;
+    padding: 4vw 0;
 }
 
 #page6 h2 {
     font-size: 2vw;
     font-family: su-lig;
+    margin-bottom: 3vw;
 }
 
 #page6 img {
     width: 15%;
     margin: 1vw 2vw;
+    max-width: 150px;
 }
 
 #page6 img:hover {
@@ -467,7 +492,7 @@ hr {
 
 #footer {
     width: 100%;
-    height: 50vh;
+    min-height: 50vh;
     background-color: #2e2e2e;
     color: #fff;
     padding: 60px 6%;
@@ -481,13 +506,13 @@ hr {
 }
 
 .footer-brand h2 {
-    font-size: 28px;
+    font-size: 1.75rem; 
     margin-bottom: 10px;
     color: #f3b33d;
 }
 
 .footer-brand p {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.6;
     max-width: 320px;
 }
@@ -502,12 +527,12 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    opacity: 0;
-    transform: translateY(20px);
+     opacity: 0; 
+     transform: translateY(20px); 
 }
 
 .footer-links h3 {
-    font-size: 18px;
+    font-size: 1.125rem; 
     margin-bottom: 10px;
     color: #f3b33d;
 }
@@ -515,7 +540,7 @@ hr {
 .footer-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 1rem; 
     transition: all 0.3s ease;
 }
 
@@ -524,13 +549,13 @@ hr {
 }
 
 .footer-contact h3 {
-    font-size: 18px;
+    font-size: 1.125rem; 
     margin-bottom: 10px;
     color: #f3b33d;
 }
 
 .footer-contact p {
-    font-size: 15px;
+    font-size: 1rem; 
     line-height: 1.6;
 }
 
@@ -539,8 +564,152 @@ hr {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 20px;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.875rem; 
     color: rgba(255, 255, 255, 0.7);
-    opacity: 0;
-    transform: translateY(20px);
+     opacity: 0; 
+     transform: translateY(20px);
 }
+
+
+
+@media (max-width: 768px) {
+   
+    #page1-content {
+        padding: 5vw 4vw;
+    }
+   
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6vw 5vw;
+        gap: 20px;
+    }
+
+    nav h4, nav h3 {
+        font-size: 1rem;
+    }
+   
+    nav div {
+        justify-content: space-between;
+        width: 100%;
+        gap: 15px;
+    }
+   
+    #page1-content h1,
+    #page1-content h1 span {
+        font-size: 18vw; 
+    }
+
+ 
+    #page2-nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 6vw 4vw;
+    }
+
+    #page2-nav h3 {
+        font-size: 1.25rem;
+    }
+   
+    hr {
+        margin-bottom: 8vw;
+    }
+
+    .elem h1 {
+        font-size: 1.8rem;
+    }
+
+   
+    #page3 {
+        padding: 8vw 4vw;
+    }
+
+    #page3-top h3 {
+        font-size: 1.25rem;
+    }
+    #page3-top h1 {
+        font-size: 2rem;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+    }
+
+    #page3-elements {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin-top: 6vw;
+    }
+
+    #page3-elements .box {
+        width: 100%; 
+        max-width: 400px;
+        margin-bottom: 0;
+    }
+
+    #page3-elements .box img {
+        height: 35vh;
+    }
+
+    #page3-elements .box h3 {
+        font-size: 1.2rem;
+        margin-top: 3vw;
+    }
+
+    #page4 {
+        padding: 8vw 0 4vw 0; 
+    }
+   
+    #page4-top h1 {
+        font-size: 8vw;
+        width: 90%;
+        margin: 0 auto 4vw auto;
+    }
+   
+    #swiperDiv {
+        height: 40vh;
+    }
+   
+    #page5 {
+        flex-direction: column;
+        padding: 20px 6% 40px 6%; 
+        gap: 40px;
+    }
+
+    #page5-left h6 {
+        font-size: 0.9rem;
+    }
+
+    #page5-left h2, #page5-right h2 {
+        font-size: 1.8rem;
+    }
+ 
+    #page6 {
+        padding: 6vw 0 10vw 0;
+    }
+   
+    #page6 h2 {
+        font-size: 1.6rem;
+        margin-bottom: 4vw;
+    }
+
+    #page6 img {
+        width: 25%;
+        margin: 2vw 2vw;
+    }
+
+ 
+    #footer {
+        padding: 40px 6%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
