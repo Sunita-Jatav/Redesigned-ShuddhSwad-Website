@@ -264,3 +264,44 @@ gsap.to("#footer .footer-bottom", {
         toggleActions: "play none none reverse",
     }
 });
+
+
+// SELECTORS
+const sidebar = document.querySelector("#sidebar");
+
+// nav ke andar jitne bhi h3 hai unko select karo
+const navButtons = document.querySelectorAll("nav h3");
+
+// nav ka second h3 (menu button)
+const openBtn = navButtons[1];
+
+// close button in sidebar
+const closeBtn = document.querySelector("#closeSidebar");
+
+
+// OPEN SIDEBAR ON 2ND H3 CLICK
+openBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    sidebar.classList.add("active");
+});
+
+// CLOSE SIDEBAR ON CLOSE ICON
+closeBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    sidebar.classList.remove("active");
+});
+
+// CLICK OUTSIDE TO CLOSE
+document.addEventListener("click", (e) => {
+    if (!sidebar.contains(e.target) && !openBtn.contains(e.target)) {
+        sidebar.classList.remove("active");
+    }
+});
+
+// Auto close sidebar on scroll
+window.addEventListener("scroll", () => {
+    if (sidebar.classList.contains("active")) {
+        sidebar.classList.remove("active");
+    }
+});
+
